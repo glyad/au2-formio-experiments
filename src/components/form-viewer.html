@@ -1,0 +1,126 @@
+<bindable name="src"></bindable>
+
+<style>
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+  }
+  
+  
+  .tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  </style>  
+
+<div style="overflow-y: visible;" repeat.for="component of src.components">
+
+  
+  <div if.bind="component.type === 'textfield'" class="mb-2 form-group has-feedback formio-component formio-component-${component.type} formio-component-${component.key}">
+    
+    <label if.bind="!component.labelPosition" for="${component.key}" class="col-form-label">${(component.hideLabel) ? '' : component.label}</label>
+    <div if.bind="!component.labelPosition || component.labelPosition === 'bottom'" >
+      <div class="${component.prefix || component.suffix  ? 'input-group' : ''}">
+        <div if.bind="component.prefix" class="input-group-text">${component.prefix}</div>
+        <input aria-required="" aria-labelledby="firstName" spellcheck="true" placeholder="${(component.placeholder) ? component.placeholder : ''}" lang="en" class="form-control" type="text" name="data[${component.key}]" aria-invalid="false">
+        <div if.bind="component.suffix" class="input-group-text">${component.suffix}</div>
+      </div> 
+      <div class="form-text ${component.description ? 'float-end' : 'text-end'}">  
+        <span aria-live="polite" class="text-muted">10 characters</span>
+        <span aria-live="polite" class="text-muted">2 words</span>
+      </div>
+    </div>  
+    <div class="form-text text-muted" id="d-ecne96c-textField1">${component.description}</div>  
+    <label if.bind="component.labelPosition === 'bottom'" for="${component.key}" class="col-form-label">${(component.hideLabel) ? '' : component.label}</label>
+
+    <div if.bind="component.labelPosition !== 'bottom'" class="${(component.labelPosition === 'right-left' || component.labelPosition === 'right-right') ? 'field-wrapper field-wrapper--reverse' : 'field-wrapper'}">    
+      <div style="flex: ${!component.labelWidth ? '30' : component.labelWidth}; margin-${(component.labelPosition === 'right-left' || component.labelPosition === 'right-right') ? 'left' : 'right'}: ${!component.labelMargin ? 3 : component.labelMargin}%;" 
+          class="${component.labelPosition === 'left-right' ? 'field-label field-label--right' : 'field-label'} ${(component.labelPosition === 'right-right') ? 'field-label--right' : 'field-label'}">
+        <label id="l-e8armea-textField1" for="e8armea-textField1" class="col-form-label">Text Field</label> 
+      </div>    
+      <div style="flex: ${(component.labelWidth && component.labelMargin) ? (100 - component.labelWidth - component.labelMargin) : 67};;;" class="field-content">
+        <div class="${component.prefix || component.suffix  ? 'input-group' : ''}">
+          <div if.bind="component.prefix" class="input-group-text">${component.prefix}</div>
+          <input aria-required="false" aria-labelledby="l-e8armea-textField1" id="e8armea-textField1" value="" spellcheck="true" lang="en" class="form-control" type="text" name="data[textField1]" aria-invalid="false">
+          <div if.bind="component.suffix" class="input-group-text">${component.suffix}</div>
+        </div>
+        <div style="display: flex;">
+          <div if.bind="component.description" class="form-text text-muted" id="d-ecne96c-textField1">${component.description}</div>
+          <div class="form-text ${component.description ? 'float-end' : 'text-end'}">  
+            <span if.bind="component.showCharCount" aria-live="polite" class="text-muted">10 characters</span>
+            <span if.bind="component.showWordCount" aria-live="polite" class="text-muted">2 words</span>
+          </div>
+        </div>
+        
+      </div>      
+    </div>
+      
+    <div class="formio-errors invalid-feedback"></div>
+  </div>
+  
+  <div if.bind="component.type === 'textarea'" class="mb-2 form-group has-feedback formio-component formio-component-${component.type} formio-component-${component.key}">
+    <label for="ez9o8dc-textarea2" class="col-form-label">${(component.hideLabel) ? '' : component.label}</label>
+    <div>
+      <div class="input-group">
+        <div if.bind="component.prefix" class="input-group-text">${component.prefix}</div>
+        <textarea aria-required="false" aria-labelledby="l-ez9o8dc-textarea2" id="ez9o8dc-textarea2" rows="3" spellcheck="true" placeholder="${component.placeholder}" lang="en" class="form-control" type="text" name="data[textarea2]" aria-invalid="false"></textarea>
+        <div if.bind="component.suffix" class="input-group-text">${component.suffix}</div>
+      </div>
+    </div>
+    <div class="formio-errors invalid-feedback"></div>
+  </div>
+  
+  <!-- <label class="formio-component-label-hidden">${component.label}</label> -->
+  <div  if.bind="component.type === 'columns'" class="row formio-component formio-component-columns formio-component-label-hidden ${(column.customClass) ? column.customClass : '' }">
+    <div repeat.for="column of component.columns" class="col-${column.size}-${column.width} col-${column.size}-offset-${column.offset} col-${column.size}-push-${column.push} col-${column.size}-pull-${column.pull}">
+      <form-viewer src.bind="column"></form-viewer>
+    </div>
+  </div>
+
+  <div if.bind="component.type === 'panel'" class="mb-2  formio-component formio-component-panel formio-component-panel">  
+    <div class="mb-2 card border">    
+      <div aria-controls="ejqkt98-panel" aria-expanded="true" role="button" tabindex="0" class="card-header bg-default">
+        <span class="mb-0 card-title">        
+          <i data-title="Collapse Panel" class="formio-collapse-icon fa fa-minus-square-o bi bi-minus-square-o text-muted"></i>        
+          ${component.label}
+        </span>
+      </div>    
+      <div class="card-body">
+        <form-viewer src.bind="component"></form-viewer>
+      </div>    
+    </div>     
+  </div>
+
+  <div if.bind="component.type === 'button'">
+    <button lang="en" class="btn btn-${component.theme ? component.theme : 'primary'} btn-${component.size} ${(component.tooltip && component.tooltip !== '') ? 'tooltip' : ''}" type="submit" name="data[submit]">
+      ${component.label}
+      <i if.bind="component.tooltip && component.tooltip !== ''" class="fa fa-question-sign bi bi-question-circle text-muted" aria-expanded="false"></i>
+      <span if.bind="component.tooltip && component.tooltip !== ''" class="tooltiptext">${component.tooltip}</span>
+    </button>    
+  </div>
+
+</div>

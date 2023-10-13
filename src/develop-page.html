@@ -1,0 +1,97 @@
+<import from="./components/form-viewer.html"></import>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <aside class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary" style="position: fixed; height: 90vh;">
+      <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+            <span>FORMS</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+              <svg class="bi"><use xlink:href="#plus-circle"/></svg>
+            </a>
+          </h6>
+          <ul class="nav flex-column">            
+            <li class="nav-item" repeat.for="title of titles">
+              <a class="nav-link d-flex align-items-center gap-2" aria-current="page" click.trigger="displayForm(title)">
+                <svg class="bi"><use xlink:href="#house-fill"/></svg>
+                ${title}
+              </a>
+            </li>
+            
+          </ul>
+          <hr class="my-3">
+          <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+            <span>Saved reports</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+              <svg class="bi"><use xlink:href="#plus-circle"/></svg>
+            </a>
+          </h6>
+          <ul class="nav flex-column mb-auto">
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="#">
+                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
+                Current month
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="#">
+                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
+                Last quarter
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="#">
+                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
+                Social engagement
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="#">
+                <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
+                Year-end sale
+              </a>
+            </li>
+          </ul> -->
+          <!-- 
+          <hr class="my-3">
+
+          <ul class="nav flex-column mb-auto">
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="#">
+                <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
+                Settings
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="#">
+                <svg class="bi"><use xlink:href="#door-closed"/></svg>
+                Sign out
+              </a>
+            </li>
+          </ul> -->
+        </div>
+      </div>
+    </aside>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">${form.label}</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <!-- Toolbar goes here -->
+        </div>
+      </div>      
+
+      <!-- <h2>${form.label}</h2> -->
+      <div style="display: block; overflow-y: scroll; overflow-x: hidden;">
+        <form-viewer src.bind="form"></form-viewer>
+      </div>
+    </main>
+  </div>
+</div>

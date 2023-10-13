@@ -1,0 +1,33 @@
+<import from="./components/form-viewer.html"></import>
+
+<h1>Form Builder</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h3 class="text-center text-muted"></h3>
+      <div id="builder"></div>
+    </div>
+    <div class="col-sm-4">
+      <h3 class="text-center text-muted">as JSON Schema</h3>
+      <div class="card card-body bg-light jsonviewer">
+        <pre id="json">${JSON.stringify(builderInstance.schema, null, 2)}</pre>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p>Submission: ${submission}</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <h3 class="text-center text-muted">The Form</h3>
+      <form-viewer src.bind="builderInstance.schema"></form-viewer>
+      <!-- <formio-view changed.trigger="formioChanged($event)" ref="formioview" src.bind="builderInstance.schema" submission.bind="submission"></formio-view> -->
+    </div>
+    <div class="col-sm-4">
+      <h3 class="text-center text-muted">Submission</h3>
+      <div class="card card-body bg-light jsonviewer">
+        <pre>${submission}</pre>
+      </div>
+    </div>
+  </div>
+</div>
