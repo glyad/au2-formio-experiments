@@ -18,6 +18,14 @@
           "input": true
       },
       {
+        "label": "TheWell",
+        "key": "theWell",
+        "type": "well",
+        "input": false,
+        "tableView": false,
+        "components": []
+      },
+      {
           "label": "Text Field",
           "description": "The textfield with description and word counter",
           "applyMaskOn": "change",

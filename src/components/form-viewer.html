@@ -115,6 +115,12 @@
     </div>     
   </div>
 
+  <div if.bind="component.type === 'well'" class="card card-body bg-light mb-3">
+    <div> <!-- nested content -->
+      <form-viewer src.bind="component"></form-viewer>  
+    </div>
+  </div>
+
   <div if.bind="component.type === 'button'">
     <button lang="en" class="btn btn-${component.theme ? component.theme : 'primary'} btn-${component.size} ${(component.tooltip && component.tooltip !== '') ? 'tooltip' : ''}" type="submit" name="data[submit]">
       ${component.label}
