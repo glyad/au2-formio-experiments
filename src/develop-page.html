@@ -90,7 +90,10 @@
 
       <!-- <h2>${form.label}</h2> -->
       <div style="display: block; overflow-y: scroll; overflow-x: hidden;">
-        <form-viewer src.bind="form"></form-viewer>
+        <form submit.trigger="onsubmit($event, $this)" accept="application/json">
+          <form-viewer ref="viewer" src.bind="form" ></form-viewer>
+        </form>
+        <div innerhtml.bind="viewer.data"></div>
       </div>
     </main>
   </div>

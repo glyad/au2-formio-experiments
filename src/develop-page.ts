@@ -1,4 +1,4 @@
-import { bindable } from "aurelia";
+import { BindingMode, bindable } from "aurelia";
 
 export class DevelopPage {
 
@@ -6,6 +6,8 @@ export class DevelopPage {
   public form;
   public forms = [];
   public titles = [];
+  @bindable({mode: BindingMode.toView})
+  public data: string;
 
   attached() {
     
@@ -26,5 +28,11 @@ export class DevelopPage {
 
   displayForm(title: string): void {
     this.form = this.forms.find(that => that.title === title).form;
+  }
+
+  onsubmit(e: SubmitEvent): void {
+    e.preventDefault();
+    const data = new FormData(document.querySelector('form'), e.submitter);
+    console.log(document.querySelector('form'));
   }
 }
