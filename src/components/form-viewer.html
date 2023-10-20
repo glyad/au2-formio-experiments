@@ -1,3 +1,5 @@
+<import from="./signature-pad"></import>
+
 <bindable name="src"></bindable>
 
 <style>
@@ -39,6 +41,23 @@
 
 <div style="overflow-y: visible;" repeat.for="component of src.components">
 
+  <div if.bind="component.type === 'signature'">
+    <label class="col-form-label">${component.label}</label>
+    <div>
+      
+      <input aria-required="false" value="${sp.data}" lang="en" class="form-control" type="hidden" name="${component.key}" aria-invalid="false">
+      <div tabindex="0" style="width: 100%; height: 150px; padding: 0px; margin: 0px; max-width: 100%;" class="signature-pad-body">
+        <a class="btn btn-sm btn-light signature-pad-refresh">
+          <i class="fa fa-refresh bi bi-arrow-repeat"></i>
+        </a>
+        <signature-pad ref="sp"></signature-pad>
+        <img style="width: 100%; display: none;" src="">
+      </div>
+      <div class="signature-pad-footer">${component.footer}</div>      
+    </div>
+    <div if.bind="component.description" class="form-text text-muted">${component.description}</div>
+    <div class="formio-errors invalid-feedback"></div>
+  </div>
   
   <div if.bind="component.type === 'textfield'" class="mb-2 form-group has-feedback formio-component formio-component-${component.type} formio-component-${component.key}">
     
@@ -69,7 +88,7 @@
           <div if.bind="component.suffix" class="input-group-text">${component.suffix}</div>
         </div>
         <div style="display: flex;">
-          <div if.bind="component.description" class="form-text text-muted" id="d-ecne96c-textField1">${component.description}</div>
+          <div if.bind="component.description" class="form-text text-muted">${component.description}</div>
           <div class="form-text ${component.description ? 'float-end' : 'text-end'}">  
             <span if.bind="component.showCharCount" aria-live="polite" class="text-muted">10 characters</span>
             <span if.bind="component.showWordCount" aria-live="polite" class="text-muted">2 words</span>
@@ -113,6 +132,12 @@
         <form-viewer src.bind="component"></form-viewer>
       </div>    
     </div>     
+  </div>
+
+  <div if.bind="component.type === 'well'" class="card card-body bg-light mb-3">
+    <div> <!-- nested content -->
+      <form-viewer src.bind="component"></form-viewer>  
+    </div>
   </div>
 
   <div if.bind="component.type === 'button'">

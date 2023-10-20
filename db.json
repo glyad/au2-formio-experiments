@@ -1,122 +1,163 @@
 {
   "forms": [
-  { "title": "Text inputs", 
-    "form": {
-    "label": "Text inputs", 
-    "components": [
-      {
-          "label": "Text Field",
-          "description": "The textfield with description and word counter",
-          "prefix": "p",
-          "suffix": "s",
-          "showWordCount": true,
-          "showCharCount": true,
-          "applyMaskOn": "change",
-          "tableView": true,
-          "key": "textField2",
-          "type": "textfield",
-          "input": true
-      },
-      {
-          "label": "Text Field",
-          "description": "The textfield with description and word counter",
-          "applyMaskOn": "change",
-          "showWordCount": true,
-          "showCharCount": true,
-          "tableView": true,
-          "key": "textField1",
-          "type": "textfield",
-          "input": true
-      },      
-      {
-        "label": "Text Field",
-        "labelPosition": "left-left",
-        "showWordCount": true,
-        "showCharCount": true,
-        "applyMaskOn": "change",
-        "tableView": true,
-        "key": "textField6",
-        "type": "textfield",
-        "input": true
-      },
-      {
+    {
+      "title": "Signature Pad",
+      "form": {      
+        "label": "Signature Pad",
+        "components": [
+            {
+              "label": "Signature",
+              "footer": "Custom footer label",
+              "description": "The description",
+              "tableView": false,
+              "key": "signature",
+              "tags": [
+                  "tagSignature"
+              ],
+              "type": "signature",
+              "input": true
+            },
+            {
+              "label": "Submit",
+              "showValidations": false,
+              "tableView": false,
+              "key": "submit",
+              "type": "button",
+              "input": true,
+              "saveOnEnter": true
+          }
+        ]
+      }
+    },
+    { 
+      "title": "Text inputs", 
+      "form": {
+        "label": "Text inputs", 
+        "components": [
+        {
+            "label": "Text Field",
+            "description": "The textfield with description and word counter",
+            "prefix": "p",
+            "suffix": "s",
+            "showWordCount": true,
+            "showCharCount": true,
+            "applyMaskOn": "change",
+            "tableView": true,
+            "key": "textField2",
+            "type": "textfield",
+            "input": true
+        },
+        {
+          "label": "TheWell",
+          "key": "theWell",
+          "type": "well",
+          "input": false,
+          "tableView": false,
+          "components": []
+        },
+        {
+            "label": "Text Field",
+            "description": "The textfield with description and word counter",
+            "applyMaskOn": "change",
+            "showWordCount": true,
+            "showCharCount": true,
+            "tableView": true,
+            "key": "textField1",
+            "type": "textfield",
+            "input": true
+        },      
+        {
           "label": "Text Field",
           "labelPosition": "left-left",
-          "prefix": "l",
-          "suffix": "l",
           "showWordCount": true,
           "showCharCount": true,
           "applyMaskOn": "change",
           "tableView": true,
-          "key": "textField",
-          "type": "textfield",
-          "labelWidth": 10,
-          "labelMargin": 5,
-          "input": true
-      },
-      {
-          "label": "Text Field",
-          "labelPosition": "left-right",
-          "prefix": "l",
-          "suffix": "r",
-          "showWordCount": true,
-          "showCharCount": true,
-          "applyMaskOn": "change",
-          "tableView": true,
-          "key": "textField1",
-          "type": "textfield",
-          "labelWidth": 50,
-          "labelMargin": 1,
-          "input": true
-      },
-      {
-          "label": "Text Field",
-          "labelPosition": "bottom",
-          "prefix": "p",
-          "suffix": "s",
-          "showWordCount": true,
-          "showCharCount": true,
-          "applyMaskOn": "change",
-          "tableView": true,
-          "key": "textField3",
+          "key": "textField6",
           "type": "textfield",
           "input": true
-      },
-      {
-          "label": "Text Field",
-          "labelPosition": "right-left",
-          "prefix": "r",
-          "suffix": "r",
-          "showWordCount": true,
-          "showCharCount": true,
-          "applyMaskOn": "change",
-          "tableView": true,
-          "key": "textField4",
-          "type": "textfield",
-          "labelWidth": 60,
-          "labelMargin": 0,
-          "input": true
-      },
-      {
-          "label": "Text Field",
-          "labelPosition": "right-right",
-          "prefix": "r",
-          "suffix": "r",
-          "applyMaskOn": "change",
-          "tableView": true,
-          "key": "textField5",
-          "type": "textfield",
-          "labelWidth": 40,
-          "labelMargin": 30,
-          "input": true
-      },
-      {
-          "type": "button",
-          "label": "Submit",
-          "key": "submit",
-          "disableOnInvalid": true,
-          "input": true,
-          "tableView": false
-      }
-  ]}}]
+        },
+        {
+            "label": "Text Field",
+            "labelPosition": "left-left",
+            "prefix": "l",
+            "suffix": "l",
+            "showWordCount": true,
+            "showCharCount": true,
+            "applyMaskOn": "change",
+            "tableView": true,
+            "key": "textField",
+            "type": "textfield",
+            "labelWidth": 10,
+            "labelMargin": 5,
+            "input": true
+        },
+        {
+            "label": "Text Field",
+            "labelPosition": "left-right",
+            "prefix": "l",
+            "suffix": "r",
+            "showWordCount": true,
+            "showCharCount": true,
+            "applyMaskOn": "change",
+            "tableView": true,
+            "key": "textField1",
+            "type": "textfield",
+            "labelWidth": 50,
+            "labelMargin": 1,
+            "input": true
+        },
+        {
+            "label": "Text Field",
+            "labelPosition": "bottom",
+            "prefix": "p",
+            "suffix": "s",
+            "showWordCount": true,
+            "showCharCount": true,
+            "applyMaskOn": "change",
+            "tableView": true,
+            "key": "textField3",
+            "type": "textfield",
+            "input": true
+        },
+        {
+            "label": "Text Field",
+            "labelPosition": "right-left",
+            "prefix": "r",
+            "suffix": "r",
+            "showWordCount": true,
+            "showCharCount": true,
+            "applyMaskOn": "change",
+            "tableView": true,
+            "key": "textField4",
+            "type": "textfield",
+            "labelWidth": 60,
+            "labelMargin": 0,
+            "input": true
+        },
+        {
+            "label": "Text Field",
+            "labelPosition": "right-right",
+            "prefix": "r",
+            "suffix": "r",
+            "applyMaskOn": "change",
+            "tableView": true,
+            "key": "textField5",
+            "type": "textfield",
+            "labelWidth": 40,
+            "labelMargin": 30,
+            "input": true
+        },
+        {
+            "type": "button",
+            "label": "Submit",
+            "key": "submit",
+            "disableOnInvalid": true,
+            "input": true,
+            "tableView": false
+        }
+      ]
+    }
+    }
+  ]
 }
